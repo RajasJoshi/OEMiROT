@@ -1,0 +1,4 @@
+app_image_number=2
+s_data_image_number=1
+ns_data_image_number=1
+primary_only=0

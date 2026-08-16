@@ -1,0 +1,47 @@
+# STM32CubeIDE / Eclipse CDT build output
+Debug/
+Release/
+.settings/
+*.launch
+
+# MDK-ARM (Keil) build output
+MDK-ARM/**/Objects/
+MDK-ARM/**/Listings/
+*.uvguix.*
+
+# EWARM (IAR) build output
+EWARM/**/Debug/
+EWARM/**/Release/
+*.dep
+*.pbd
+*.pbi
+*.pbw
+
+# Generated / preprocessed at build time
+image_macros_preprocessed_bl2.c
+output.ld
+
+# Build artifacts (kept out; Binary/ dirs are tracked via .gitkeep)
+OEMiROT_Boot/Binary/*
+!OEMiROT_Boot/Binary/.gitkeep
+OEMiROT_App/Binary/*
+!OEMiROT_App/Binary/.gitkeep
+*.elf
+*.map
+*.list
+*.su
+*.cyclo
+*.o
+*.d
+
+# Provisioning run logs
+ROT_Provisioning/**/*.log
+ROT_Provisioning/**/error
+
+# Python
+__pycache__/
+*.pyc
+
+# OS cruft
+.DS_Store
+Thumbs.db
