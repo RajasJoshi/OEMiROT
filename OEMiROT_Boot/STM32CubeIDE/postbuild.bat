@@ -66,10 +66,10 @@ set "update=%projectdir%\..\..\ROT_Provisioning\OEMiROT\ob_flash_programming.bat
 
 
 set "provisioning=%projectdir%\..\..\ROT_Provisioning\OEMiROT\img_config.bat"
-set ns_main="%appli_dir%\NonSecure\Inc\main.h"
-set s_main="%appli_dir%\Secure\Inc\main.h"
+set ns_main="%appli_dir%\NonSecure\Core\Inc\main.h"
+set s_main="%appli_dir%\Secure\Core\Inc\main.h"
 set appli_flash_layout="%appli_dir%\Secure_nsclib\appli_flash_layout.h"
-set appli_postbuild="%appli_dir%\STM32CubeIDE\postbuild.bat"
+set appli_postbuild="%appli_dir%\postbuild.bat"
 set "map_properties=%projectdir%\..\..\OEMiROT_Boot\map.properties"
 
 ::======================================================================================
@@ -89,8 +89,8 @@ set xml_fw_app_item_name="Firmware binary input file"
 set xml_fw_data_item_name="Data binary input file"
 set xml_output_item_name="Image output file"
 set xml_enc_item_name="Encryption key"
-set s_ld_file="%appli_dir%\STM32CubeIDE\Secure\STM32H563ZITX_FLASH.ld"
-set ns_ld_file="%appli_dir%\STM32CubeIDE\NonSecure\STM32H563ZITX_FLASH.ld"
+set s_ld_file="%appli_dir%\Secure\STM32H563ZITX_FLASH.ld"
+set ns_ld_file="%appli_dir%\NonSecure\STM32H563ZITX_FLASH.ld"
 set code_size="Firmware area size"
 set data_size="Data download slot size"
 set scratch_sector_number="Number of scratch sectors"

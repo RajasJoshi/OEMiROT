@@ -113,14 +113,14 @@
 	</Param>
 	<Param>
 		<Name>Firmware binary input file</Name>
-		<Value>/home/rajas/workspace/OEMiROT/OEMiROT_App/STM32CubeIDE/../Binary/rot_tz_ns_app.bin</Value>
+		<Value>/home/rajas/workspace/OEMiROT/OEMiROT_App/Binary/rot_tz_ns_app.bin</Value>
 		<Type>File</Type>
 		<Tooltip>Select the firmware binary file to be processed for the image generation</Tooltip>
 		<Default>../../../Applications/ROT/OEMiROT_Appli_TrustZone/Binary/rot_tz_ns_app.bin</Default>
 	</Param>
 	<Output>
 		<Name>Image output file</Name>
-		<Value>/home/rajas/workspace/OEMiROT/OEMiROT_App/STM32CubeIDE/../Binary/rot_tz_ns_app_init_sign.hex</Value>
+		<Value>/home/rajas/workspace/OEMiROT/OEMiROT_App/Binary/rot_tz_ns_app_init_sign.hex</Value>
 		<Default>../../../Applications/ROT/OEMiROT_Appli_TrustZone/Binary/rot_tz_s_app_init_sign.hex</Default>
 	</Output>
   </McubootFormat>
