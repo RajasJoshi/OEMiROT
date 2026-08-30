@@ -3,7 +3,7 @@
 :: Getting the Trusted Package Creator and STM32CubeProgammer CLI path
 set "projectdir=%~dp0"
 
-pushd %projectdir%\..\..\ROT_Provisioning
+pushd %projectdir%\..\..\..\..\ROT_Provisioning
 
 set provisioningdir=%cd%
 popd
@@ -60,37 +60,37 @@ set "applicfg=%cube_fw_path%\Utilities\PC_Software\ROT_AppliConfig\AppliCfg.py"
 
 :postbuild
 set "preprocess_bl2_file=%projectdir%\image_macros_preprocessed_bl2.c"
-set "appli_dir=../../%oemirot_appli_path_project%"
-set "loader_dir=../../%oemirot_loader_path_project%"
-set "update=%projectdir%\..\..\ROT_Provisioning\OEMiROT\ob_flash_programming.bat"
+set "appli_dir=../../../../%oemirot_appli_path_project%"
+set "loader_dir=../../../../%oemirot_loader_path_project%"
+set "update=%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\ob_flash_programming.bat"
 
 
-set "provisioning=%projectdir%\..\..\ROT_Provisioning\OEMiROT\img_config.bat"
-set ns_main="%appli_dir%\NonSecure\Core\Inc\main.h"
-set s_main="%appli_dir%\Secure\Core\Inc\main.h"
+set "provisioning=%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\img_config.bat"
+set ns_main="%appli_dir%\NonSecure\Inc\main.h"
+set s_main="%appli_dir%\Secure\Inc\main.h"
 set appli_flash_layout="%appli_dir%\Secure_nsclib\appli_flash_layout.h"
-set appli_postbuild="%appli_dir%\postbuild.bat"
+set appli_postbuild="%appli_dir%\STM32CubeIDE\postbuild.bat"
 set "map_properties=%projectdir%\..\..\OEMiROT_Boot\map.properties"
 
 ::======================================================================================
 ::image xml configuration files
 ::======================================================================================
-set s_code_xml="%projectdir%\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_S_Code_Image.xml"
-set ns_code_xml="%projectdir%\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_NS_Code_Image.xml"
-set s_data_xml="%projectdir%\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_S_Data_Image.xml"
-set ns_data_xml="%projectdir%\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_NS_Data_Image.xml"
-set s_code_init_xml="%projectdir%\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_S_Code_Init_Image.xml"
-set ns_code_init_xml="%projectdir%\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_NS_Code_Init_Image.xml"
-set s_data_init_xml="%projectdir%\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_S_Data_Init_Image.xml"
-set ns_data_init_xml="%projectdir%\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_NS_Data_Init_Image.xml"
+set s_code_xml="%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_S_Code_Image.xml"
+set ns_code_xml="%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_NS_Code_Image.xml"
+set s_data_xml="%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_S_Data_Image.xml"
+set ns_data_xml="%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_NS_Data_Image.xml"
+set s_code_init_xml="%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_S_Code_Init_Image.xml"
+set ns_code_init_xml="%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_NS_Code_Init_Image.xml"
+set s_data_init_xml="%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_S_Data_Init_Image.xml"
+set ns_data_init_xml="%projectdir%\..\..\..\..\ROT_Provisioning\OEMiROT\Images\OEMiROT_NS_Data_Init_Image.xml"
 set auth_s="Authentication secure key"
 set auth_ns="Authentication non secure key"
 set xml_fw_app_item_name="Firmware binary input file"
 set xml_fw_data_item_name="Data binary input file"
 set xml_output_item_name="Image output file"
 set xml_enc_item_name="Encryption key"
-set s_ld_file="%appli_dir%\Secure\STM32H563ZITX_FLASH.ld"
-set ns_ld_file="%appli_dir%\NonSecure\STM32H563ZITX_FLASH.ld"
+set s_ld_file="%appli_dir%\STM32CubeIDE\Secure\STM32H563ZITX_FLASH.ld"
+set ns_ld_file="%appli_dir%\STM32CubeIDE\NonSecure\STM32H563ZITX_FLASH.ld"
 set code_size="Firmware area size"
 set data_size="Data download slot size"
 set scratch_sector_number="Number of scratch sectors"

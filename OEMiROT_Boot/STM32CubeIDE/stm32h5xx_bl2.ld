@@ -47,8 +47,7 @@ SECTIONS
 
 	.text (BL2_CODE_START):
     {
-
-        __Vectors = .;
+        
         KEEP(*(.vectors))
         __Vectors_End = .;
         __Vectors_Size = __Vectors_End - __Vectors;

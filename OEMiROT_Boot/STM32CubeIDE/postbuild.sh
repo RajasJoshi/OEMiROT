@@ -42,7 +42,7 @@ config=$1
 SCRIPT=$(readlink -f $0)
 project_dir=`dirname $SCRIPT`
 echo $project_dir
-cd "$project_dir/../../ROT_Provisioning"
+cd "$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning"
 provisioningdir=$(pwd)
 cd $project_dir
 source $provisioningdir/env.sh "$provisioningdir"
@@ -83,27 +83,27 @@ applicfg="$cube_fw_path/Utilities/PC_Software/ROT_AppliConfig/AppliCfg.py"
 preprocess_bl2_file="$project_dir/image_macros_preprocessed_bl2.c"
 appli_dir="../../$oemirot_appli_path_project"
 loader_dir="../../$oemirot_loader_path_project"
-update="$project_dir/../../ROT_Provisioning/OEMiROT/ob_flash_programming.sh"
+update="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/ob_flash_programming.sh"
 
 
-provisioning="$project_dir/../../ROT_Provisioning/OEMiROT/img_config.sh"
+provisioning="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/img_config.sh"
 ns_main="$appli_dir/NonSecure/Core/Inc/main.h"
 s_main="$appli_dir/Secure/Core/Inc/main.h"
 appli_flash_layout="$appli_dir/Secure_nsclib/appli_flash_layout.h"
-appli_postbuild="$appli_dir/postbuild.sh"
+appli_postbuild="$appli_dir/ROT_Provisioning/postbuild.sh"
 map_properties="$project_dir/../../OEMiROT_Boot/map.properties"
 
 #======================================================================================
 #image xml configuration files
 #======================================================================================
-s_code_xml="$project_dir/../../ROT_Provisioning/OEMiROT/Images/OEMiROT_S_Code_Image.xml"
-ns_code_xml="$project_dir/../../ROT_Provisioning/OEMiROT/Images/OEMiROT_NS_Code_Image.xml"
-s_data_xml="$project_dir/../../ROT_Provisioning/OEMiROT/Images/OEMiROT_S_Data_Image.xml"
-ns_data_xml="$project_dir/../../ROT_Provisioning/OEMiROT/Images/OEMiROT_NS_Data_Image.xml"
-s_code_init_xml="$project_dir/../../ROT_Provisioning/OEMiROT/Images/OEMiROT_S_Code_Init_Image.xml"
-ns_code_init_xml="$project_dir/../../ROT_Provisioning/OEMiROT/Images/OEMiROT_NS_Code_Init_Image.xml"
-s_data_init_xml="$project_dir/../../ROT_Provisioning/OEMiROT/Images/OEMiROT_S_Data_Init_Image.xml"
-ns_data_init_xml="$project_dir/../../ROT_Provisioning/OEMiROT/Images/OEMiROT_NS_Data_Init_Image.xml"
+s_code_xml="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/Images/OEMiROT_S_Code_Image.xml"
+ns_code_xml="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/Images/OEMiROT_NS_Code_Image.xml"
+s_data_xml="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/Images/OEMiROT_S_Data_Image.xml"
+ns_data_xml="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/Images/OEMiROT_NS_Data_Image.xml"
+s_code_init_xml="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/Images/OEMiROT_S_Code_Init_Image.xml"
+ns_code_init_xml="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/Images/OEMiROT_NS_Code_Init_Image.xml"
+s_data_init_xml="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/Images/OEMiROT_S_Data_Init_Image.xml"
+ns_data_init_xml="$project_dir/../../OEMiROT_Appli_TrustZone/ROT_Provisioning/OEMiROT/Images/OEMiROT_NS_Data_Init_Image.xml"
 auth_s="Authentication secure key"
 auth_ns="Authentication non secure key"
 xml_fw_app_item_name="Firmware binary input file"
@@ -258,10 +258,6 @@ $python$applicfg flash --layout $preprocess_bl2_file -b app_image_number -m RE_A
 if [ $? != 0 ]; then error; fi
 
 #
-$python$applicfg flash --layout $preprocess_bl2_file -b primary_only -m RE_PRIMARY_ONLY --decimal $appli_postbuild --vb >> $current_log_file 2>&1
-if [ $? != 0 ]; then error; fi
-
-#
 $python$applicfg flash --layout $preprocess_bl2_file -b primary_only -m RE_PRIMARY_ONLY --decimal $update --vb >> $current_log_file 2>&1
 if [ $? != 0 ]; then error; fi
 
@@ -283,10 +279,6 @@ if [ $? != 0 ]; then error; fi
 
 #
 $python$applicfg flash --layout $preprocess_bl2_file -b primary_only -m RE_PRIMARY_ONLY --decimal $provisioning --vb >> $current_log_file 2>&1
-if [ $? != 0 ]; then error; fi
-
-#
-$python$applicfg flash --layout $preprocess_bl2_file -b image_s_size -m RE_IMAGE_FLASH_SECURE_IMAGE_SIZE $appli_postbuild --vb >> $current_log_file 2>&1
 if [ $? != 0 ]; then error; fi
 
 #
